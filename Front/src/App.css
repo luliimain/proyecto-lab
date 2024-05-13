@@ -1,0 +1,126 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  
+
+}
+
+.titulo {
+  color: rgb(255, 16, 96);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.fechaMesa {
+  color: black;
+}
+
+.mesaCuerpo {
+  height: 200px;
+  width: 50%;
+  margin-left: 17%;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+th{
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-bottom: 60px;
+}
+.mesaDiv{
+  padding: 10px 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: rgba(2, 96, 133, 0.267);
+  height: 400px;
+  width: 400px;
+  margin-left: 33%;
+}
+
+.botones {
+  border-radius: 5px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5em 1.0em;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #d2e0ff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: black;
+}
+
+.botones:hover {
+  box-shadow: 0px 0px 5px 2px rgba(89, 255, 200, 0.315);
+  border: 1px solid transparent;
+}
+
+
+.AgregarMesa {
+ 
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: none;
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+
+.AgregarMesa:hover {
+  box-shadow: 0px 0px 5px 2px rgba(35, 8, 155, 0.363);
+  border: 1px;
+  background-color: rgba(84, 47, 248, 0.199);
+}
+
+.textBAgregarMesa {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: #000;
+  background-color: white;
+  width: 180px;
+
+}
+.textBAgregarMesa:hover {
+  box-shadow: 0px 0px 5px 2px rgba(89, 255, 200, 0.315);
+  border: 1px;
+}
+.espacio{
+  margin-right:  10px;
+}
+
+.links{
+  color: black;
+  text-decoration: none;
+}
+
+.centrarInicio{
+  align-items: center;
+  text-align: center;
+}
+.inicio{
+  background-color: #024e585e;
+  width: 500px;
+  height: 500px;
+  align-items: center;
+  text-align: center;
+}
+
+.formInscribirse{
+  text-align: center;
+  background-color: #003b0359;
+  margin-left: 25%;
+  width: 50%;
+}
+.Labels{
+  height: 200px;
+  width: 50%;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+}
