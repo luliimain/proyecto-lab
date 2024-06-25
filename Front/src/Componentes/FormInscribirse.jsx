@@ -5,9 +5,11 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Button, Box, Image, Heading// Agrega la importación de Button
+  Button, Box, Image, Heading, Tooltip// Agrega la importación de Button
 
 } from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons'
+import Barra from "./BarraNavegacion";
 export default function Inscribirse() {
   let { idMesa } = useParams();
   const [id, setId] = useState(1);
@@ -52,25 +54,43 @@ export default function Inscribirse() {
   }
   return (
     <>
-      <div > <button className="botones"><Link className="links" to={'/Mesas'}>volver a mesas</Link></button></div>
+      <Barra></Barra>
+      <div >   <Link className="links" to={'/'}>
+        <Tooltip label='menu' fontSize='md'>
+          <ArrowBackIcon />
+        </Tooltip>
+      </Link></div>
+      <Heading lineHeight='tall'>
 
-      <div className="centrarInicio">
-        <Heading lineHeight='tall'>
+        Inscribirse a Mesa:
 
-          Inscribirse a Mesa:
+      </Heading>
+      <div className='centrar'>
+        <div className='centrarInicio'>
+          <div className='divMesa'>
+            <div className="mesaDiv">
+              <div className='labelAgregar'>
+                <label className="Labels" >dni:</label>
+              </div>
+              <div className='inputsAgregar'>
+                <input className="textBAgregarMesa" type="input" onChange={SetDni} value={dni} />
+                <br /><br />
+                <div className='botonesAceptar'>
+                  <button className="botones" onClick={aceptar}><Link className="links" to={'/Mesas'}>aceptar</Link></button>
+                  <span className="espacio"></span>
+                  <button className="botones"><Link className="links" to={'/Mesas'}>cancelar</Link></button>
+                </div>
+              </div>
 
-        </Heading>
-        <form className="mesaDiv">
-        <label className="Labels" >dni:</label>  <input className="textBAgregarMesa" type="input" onChange={SetDni} value={dni} />
-        <br /><br />
-        <button className="botones" onClick={aceptar}><Link className="links" to={'/Mesas'}>aceptar</Link></button>
-        <span className="espacio"></span>
-        <button className="botones"><Link className="links" to={'/Mesas'}>cancelar</Link></button>
-        <Box boxSize='auto'> <br></br>
-           <Image src='https://enief2019.amcaonline.org.ar/images/partners/UTNParana.png' />
-        </Box>
-        </form>
+            </div>
+
+          </div>
+          < Box boxSize='auto'> <br></br>
+
+            <Image src='https://enief2019.amcaonline.org.ar/images/partners/UTNParana.png' />
+          </Box>
         </div>
-  
+      </div >
+
     </>);
 }

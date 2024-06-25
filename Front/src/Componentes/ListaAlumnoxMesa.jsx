@@ -7,9 +7,17 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    Button, Box, Image, Heading// Agrega la importación de Button
+    Button, Box, Image, Table,
+    Thead,
+    Tbody,
+    Tr,
+    Td,
+    Th,
+    Tooltip,
+    TableContainer, Heading// Agrega la importación de Button
 
 } from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons'
 export default function AlumnosxMesa() {
     let { idMesa } = useParams();
     const [inscriptos, setInscripciones] = useState([]);
@@ -22,43 +30,50 @@ export default function AlumnosxMesa() {
     }, [idMesa]);
     return (
         <>
-            <div > <button className="botones"><Link className="links" to={'/Mesas'}>volver a mesas</Link></button></div>
-            <div className='centrarInicio'>
-                <Heading lineHeight='tall'>
+            <div >   <Link className="links" to={'/'}>
+                <Tooltip label='menu' fontSize='md'>
+                    <ArrowBackIcon />
+                </Tooltip>
+            </Link></div>
+            <Heading lineHeight='tall'>
 
-                    Alumnos inscriptos por mesa:
+                Alumnos inscriptos por mesa:
 
-                </Heading>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <div>
-                    <table className='mesaCuerpo'>
-                        <thead>
-                            <tr style={{backgroundColor:'rgb(100, 204, 200)'}}>
-                                <th>id inscripcion:</th>
-                                <th>id mesa:</th>
-                                <th>dni alumno:</th>
-                                <th>acciones:</th>
+            </Heading>
+            <div className="otro">
+                <div className="centrarInicio">
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {inscriptos.map(alu => (
-                                <React.Fragment key={alu.id}>
-                                    <ListaDeInscriptos
-                                        key={alu.id}
-                                        id_insc={alu.id}
-                                        idMesa={alu.idMesa}
-                                        DniAlu={alu.dniAlumno}
-                                    />
-                                    <tr style={{ height: '20px' }}></tr>
-                                </React.Fragment>
-                            ))}
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <TableContainer className="tablaContainer">
+                        <Table variant='simple' className="tabla">
+                            <Thead>
+                                <Tr>
+                                    <Th style={{ color: "black" }}>id inscripcion:</Th>
+                                    <Th style={{ color: "black" }}>id mesa:</Th>
+                                    <Th style={{ color: "black" }}>dni alumno:</Th>
+                                    <Th style={{ color: "black" }}>acciones:</Th>
 
-                        </tbody>
-                    </table>
+                                </Tr>
+                            </Thead>
+                            <Tbody>
+                                {inscriptos.map(alu => (
+                                    <React.Fragment key={alu.id}>
+                                        <ListaDeInscriptos
+
+                                            id_insc={alu.id}
+                                            idMesa={alu.idMesa}
+                                            DniAlu={alu.dniAlumno}
+                                        />
+                                        <tr style={{ height: '20px' }}></tr>
+                                    </React.Fragment>
+                                ))}
+                            </Tbody>
+                            <br /><br />
+                        </Table>
+                    </TableContainer>
                 </div>
             </div>
             <br />

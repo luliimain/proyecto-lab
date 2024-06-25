@@ -1,14 +1,48 @@
-import ListaAlumnos from "./Alumnos";
+
 import React, { useEffect, useState } from 'react';
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    Button, Box, Image, Heading// Agrega la importación de Button
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Td,
+    Th,
+    Tooltip,
+    TableContainer, Heading// Agrega la importación de Button
 
 } from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons'
+import Barra from './BarraNavegacion';
+
+function eliminar(dni) {
+    console.log(dni)
+    fetch(`http://localHost:8000/api/EliminarAlumno/${dni}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            dni: dni
+        })
+    }).then(() => {
+        window.location.reload();
+    })
+}
+function ListaAlumnos({ dni, Nombre, Apellido }) {
+    const Eliminar = () => {
+        eliminar(dni);
+    };
+    return (
+        <Tr>
+            <Td >{dni}</Td>
+            <Td>{Nombre}</Td>
+            <Td>{Apellido}</Td>
+            <Td><button className="botones" type="button" > <Link className="links" to={`/Mesas/EditarAlumno/${dni}`}>Editar</Link></button></Td>
+            <Td><button className="botones" type="button" onClick={Eliminar}>eliminar</button></Td>
+        </Tr>
+    );
+}
 export default function ListaDeAlumnos() {
     const [alumno, setAlumnos] = useState([]);
     useEffect(() => {
@@ -20,48 +54,53 @@ export default function ListaDeAlumnos() {
     }, []);
     return (
         <>
-         <div > <button className="botones"><Link className="links" to={'/'}>Inicio</Link></button></div>
-            
-            <div className="centrarInicio">
-            <Heading lineHeight='tall'>
+            <Barra></Barra>
+            <div >   <Link className="links" to={'/'}>
+                <Tooltip label='menu' fontSize='md'>
+                    <ArrowBackIcon />
+                </Tooltip>
+            </Link></div>
+            <div className='tituloTabla'><Heading lineHeight='tall'>
 
-Alumnos
+                Lista de alumnos en la facultad
 
-</Heading>
-<br></br><br></br>
+            </Heading></div>
+            <div className="otro">
+                <div className="centrarInicio">
 
-                <table className="mesaCuerpo">
-                    <thead >
-                        <tr style={{backgroundColor:'rgb(100, 204, 200)'}}>
-                            <th>Dni</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Acciones</th>
-                            <th></th>
+                    <br></br><br></br>
+                    <TableContainer className="tablaContainer">
+                        <Table variant='simple' className="tabla">
+                            <Thead>
+                                <Tr>
+                                    <Th style={{ color: "black" }}>Dni</Th>
+                                    <Th style={{ color: "black" }}>Nombre</Th>
+                                    <Th style={{ color: "black" }}>Apellido</Th>
+                                    <Th style={{ color: "black" }}>Acciones</Th>
+                                    <Th></Th>
+                                </Tr>
+                            </Thead>
+                            <Tbody>
+                                {alumno.map(alu => (
+                                    <React.Fragment key={alu.Dni}>
+                                        <ListaAlumnos
+                                            dni={alu.Dni}
+                                            Nombre={alu.Nombre}
+                                            Apellido={alu.Apellido}
+                                        />
+                                        <tr style={{ height: '20px' }}></tr>
+                                    </React.Fragment>
+                                ))}
+                            </Tbody>
+                            <br></br>
+                        </Table >
+                    </TableContainer>
 
-                        </tr>
-                        <br></br>
-                    </thead>
-                    <tbody>
-                        {alumno.map(alu => (
-                             <React.Fragment key={alu.dni}>
-                            <ListaAlumnos
-                                key={alu.Dni}
-                                dni={alu.Dni}
-                                Nombre={alu.Nombre}
-                                Apellido={alu.Apellido}
-                            />
-                               <tr style={{ height: '20px' }}></tr>
-                            </React.Fragment>
-                        ))}
-                    </tbody>
-                    <br></br>
-                </table >
 
-
+                </div>
             </div>
             <br />
-           
+
         </>
     );
 

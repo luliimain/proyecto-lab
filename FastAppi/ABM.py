@@ -14,12 +14,9 @@ def VerificarMesa(db:Session, mesa:MesaData):
 
 
 
-    
-
 #Devuelve inscripciones //NO tocar
 def get_alumnosxMesa(db:Session, idMesa: int):
       resultados = db.query(Inscripciones).filter(Inscripciones.idMesa == idMesa).all()
-    
       return resultados
 
 

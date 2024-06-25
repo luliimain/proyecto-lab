@@ -3,7 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import './App.css';
 import AgregarMesa from './Componentes/FormAgregarMesa';
 import AgregarAlumno from './Componentes/FormAgregarAlumnos';
-import Links from './Componentes/MenuPrincipal';
+import Menu from './Componentes/MenuPrincipal';
 import { Route, Router, Routes } from 'react-router-dom'
 import ListaDeMesas from './Componentes/FormularioMesas';
 import ListaDeAlumnos from './Componentes/FormularioAlumnos';
@@ -11,7 +11,7 @@ import AlumnosxMesa from './Componentes/ListaAlumnoxMesa';
 import Inscribirse from './Componentes/FormInscribirse';
 import EditarMesa from './Componentes/FormEditarMesa';
 import EditarAlumno from './Componentes/FormEditarAlumno';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -22,9 +22,9 @@ import EditarAlumno from './Componentes/FormEditarAlumno';
     return (
       <>
        <ChakraProvider>
-        <div>
+        <div className='body'>
           <Routes>
-            <Route path='/' element ={<Links/>}>
+            <Route path='/' element ={<Menu/>}>
             </Route>
             <Route path='/Mesas' element={<ListaDeMesas></ListaDeMesas>}></Route>
             <Route path='/Alumnos' element={<ListaDeAlumnos></ListaDeAlumnos>}></Route>

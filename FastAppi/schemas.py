@@ -1,6 +1,4 @@
 from pydantic import BaseModel
-
-
 try:
    class MesaData(BaseModel):
      id:int

@@ -8,14 +8,12 @@ from modelos import base
 
 base.metadata.create_all(bind=engine)
 
-
 def getDB():
     db= SecionLocal()
     try:
         yield db
     finally:
         db.close()
-
 
 app= FastAPI()
 origen = [

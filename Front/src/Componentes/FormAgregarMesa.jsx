@@ -7,12 +7,14 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    Button, Box, Image, Heading// Agrega la importación de Button
+    Button, Box, Image, Heading, Tooltip// Agrega la importación de Button
 
 } from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons'
+import Barra from './BarraNavegacion';
 export default function AgregarMesa() {
 
-    const[id,setId] = useState(1);
+    const [id, setId] = useState(1);
     const [fecha, setFecha] = useState(new Date());
     const [nombre, setNombre] = useState("");
 
@@ -30,7 +32,7 @@ export default function AgregarMesa() {
         e.preventDefault()
 
         if (fecha != null && nombre != '') {
-            const fechaFormateada = fecha.toLocaleString('es-AR',{ year: '2-digit', month: '2-digit', day: '2-digit'})
+            const fechaFormateada = fecha.toLocaleString('es-AR', { year: '2-digit', month: '2-digit', day: '2-digit' })
             console.log(fechaFormateada, nombre);
 
             fetch('http://127.0.0.1:8000/api/AgregarMesa', {
@@ -39,7 +41,7 @@ export default function AgregarMesa() {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    id : id,
+                    id: id,
                     Fecha: fechaFormateada,
                     Nombre: nombre
                 })
@@ -49,44 +51,64 @@ export default function AgregarMesa() {
                 setId(id)
                 window.location.reload();
             }).catch(error => {
-   
+
                 console.error('Error en la solicitud:', error.message);
-             
+
                 alert('Mesa ya existente');
-               
+
             });
 
         }
-  
-        
+
+
     }
 
     return (
         <>
-            <div> <button className="botones"><Link className="links" to={'/Mesas'}>volver a mesas</Link></button></div>
-            <div className="centrarInicio">
+            <Barra></Barra>
+            <div >
+                <Link className="links" to={'/'}>
+                    <Tooltip label='menu' fontSize='md'>
+                        <ArrowBackIcon />
+                    </Tooltip>
+                </Link>
+            </div>
             <Heading lineHeight='tall'>
 
-               Agregar una nueva mesa:
+                Agregar una nueva mesa:
 
             </Heading>
-            <form className="mesaDiv">
-                <label className='Labels'>fecha:</label><span style={{ marginRight: '25px' }}></span>
-                <DatePicker className='textBAgregarMesa'
-                    selected={fecha}
-                    onChange={date => SetFecha(date)}
-                    dateFormat="yy-MM-dd"
-                />
-                <br /><br />
-                <label className='Labels'>nombre:</label><span className="espacio"></span>
-                <input className="textBAgregarMesa" type="text" onChange={SetNombre} value={nombre} />
-                <br /><br />
-                <button className="botones" onClick={aceptar}><Link className="links" to={'/Mesas'}> aceptar</Link> </button><span className="espacio"></span>
-                <button className="botones" ><Link className="links" to={'/Mesas'}> cancelar</Link></button>
-                <Box boxSize='auto'> <br></br>
-                    <Image src='https://enief2019.amcaonline.org.ar/images/partners/UTNParana.png' />
-                </Box>
-            </form>
+            <div className='centrar'>
+                <div className='centrarInicio'>
+                    <div className='divMesa'>
+                        <div className="mesaDiv">
+                            <div className='labelAgregar'>
+                                <label className='Labels'>fecha:</label>
+                                <label className='Labels'>nombre:</label>
+                            </div>
+
+                            <div className='inputsAgregar'>
+                                <DatePicker className='textBAgregarMesa'
+                                    selected={fecha}
+                                    onChange={date => SetFecha(date)}
+                                    dateFormat="yy-MM-dd"
+                                />
+                                <br /><br />
+                                <input className="textBAgregarMesa" type="text" onChange={SetNombre} value={nombre} />
+                                <br /><br />
+                                <span style={{ marginRight: '70px' }}></span>
+                                <div className='botonesAceptar'>
+                                    <button className="botones" onClick={aceptar}><Link className="links" to={'/Mesas'}> aceptar</Link> </button><span className="espacio"></span>
+                                    <button className="botones" ><Link className="links" to={'/Mesas'}> cancelar</Link></button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <Box boxSize='auto'> <br></br>
+                        <Image src='https://enief2019.amcaonline.org.ar/images/partners/UTNParana.png' />
+                    </Box>
+                </div>
             </div>
         </>
     );

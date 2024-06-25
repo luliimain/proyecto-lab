@@ -1,15 +1,217 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  
+.body {
+  background-color: rgba(151, 183, 253, 0.199);
+  width: 100%;
+  height: 100%;
+}
+
+/*barra navegacion*/
+.BarraNavegacion {
+  font-family: inherit;
+  font-weight: bold;
+  justify-content: center;
+  background-color: #78d4ff5d;
+  height: 10%;
+}
+
+.link {
+  color: #06051fd3;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.cajaFoto {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.fotoUtn {
+  width: 500px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 
 }
 
-.titulo {
-  color: rgb(255, 16, 96);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.TituloUtn {
+  color: #112596b0;
+  text-shadow: 5px 2px 2px rgba(0, 0, 0, 0.2);
+  font-size: 3vw;
+  font-family: inherit;
+  font-weight: bold;
+}
 
+.titulo {
+  width: 50%;
+
+}
+
+.carruselItem {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.fotosCarr {
+  width: 500px;
+  height: 300px;
+}
+
+.botonesss {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.botonMenu {
+  background-color: #78d4ff5d;
+  width: 100%;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.26);
+  height: 2vw;
+  font-size: 1vw;
+}
+
+.botonMenu :hover {
+  color: #112596b0;
+}
+
+.botonCarreras {
+  width: 250px;
+  height: 150px;
+  font-weight: bold;
+  font-size: 3vw;
+  color: #67e8ffd0;
+  background-color: #2000ad86;
+  margin-right: 1%;
+  border-radius: 10px;
+  box-shadow: 8px 5px 2px rgba(0, 0, 0, 0.411);
+}
+
+.botonCarreras:hover {
+  border: 2px solid rgba(0, 0, 0, 0.24);
+}
+
+.botonesCarreras {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.noticia {
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.texto {
+  width: 80%;
+  color: #0000008f;
+}
+
+.tituloNoticia {
+  width: 80%;
+  color: #00a2ff;
+}
+
+.noticias {
+  margin-left: 2%;
+}
+
+.DivNoticias {
+  display: flex;
+}
+
+.footer {
+  background-color: #00a2ff67;
+  height: 300px;
+
+}
+
+.fot {
+  display: flex;
+}
+
+.iconos {
+  width: 50%;
+
+}
+
+.imgFooter {
+  width: 20vw;
+  height: 15vw;
+}
+
+.fotoFooter {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+/*fin menu principal*/
+
+/*tablas*/
+.otro {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.centrar {
+  background-color: #9a9cfa48;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.divMesa {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.mesaDiv {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: 50%;
+}
+.centrarInicio {
+  width: 800px;
+  height: 500px;
+}
+
+.tituloTabla {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.labelAgregar{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+.inputsAgregar{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+.botonesAceptar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tablaContainer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .fechaMesa {
@@ -25,19 +227,13 @@
   font-family: inherit;
 }
 
-th{
+th {
   padding-right: 60px;
   padding-left: 60px;
   margin-bottom: 60px;
 }
-.mesaDiv{
-  padding: 10px 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  background-color: rgba(2, 96, 133, 0.267);
-  height: 400px;
-  width: 400px;
-  margin-left: 33%;
-}
+
+
 
 .botones {
   border-radius: 5px;
@@ -59,16 +255,17 @@ th{
   border: 1px solid transparent;
 }
 
+.links {
+  color: #000;
+}
 
 .AgregarMesa {
- 
   border: none;
   border-radius: 5px;
   padding: 5px;
   background-color: none;
   font-weight: bold;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .AgregarMesa:hover {
@@ -86,24 +283,17 @@ th{
   width: 180px;
 
 }
+
 .textBAgregarMesa:hover {
   box-shadow: 0px 0px 5px 2px rgba(89, 255, 200, 0.315);
   border: 1px;
 }
-.espacio{
-  margin-right:  10px;
+
+.espacio {
+  margin-right: 10px;
 }
 
-.links{
-  color: black;
-  text-decoration: none;
-}
-
-.centrarInicio{
-  align-items: center;
-  text-align: center;
-}
-.inicio{
+.inicio {
   background-color: #024e585e;
   width: 500px;
   height: 500px;
@@ -111,15 +301,15 @@ th{
   text-align: center;
 }
 
-.formInscribirse{
+.formInscribirse {
   text-align: center;
   background-color: #003b0359;
   margin-left: 25%;
   width: 50%;
 }
-.Labels{
-  height: 200px;
-  width: 50%;
+
+.Labels {
+  height: 90px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;

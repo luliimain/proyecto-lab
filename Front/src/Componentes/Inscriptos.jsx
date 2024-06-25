@@ -8,13 +8,13 @@ function eliminar(id_insc) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-        id_ins: id_insc
+      id_ins: id_insc
     })
-  }).then(()=>{
+  }).then(() => {
     window.location.reload();
   }).catch(error => {
     alert('no se puede borrar');
-});
+  });
 }
 export default function ListaDeInscriptos({ id_insc, idMesa, DniAlu }) {
   const Eliminar = () => {
@@ -22,16 +22,19 @@ export default function ListaDeInscriptos({ id_insc, idMesa, DniAlu }) {
   };
   console.log(id_insc)
   return (
-    <tr>
-      <td>{id_insc}< span className="espacio"> </span></td>
-      <td>{idMesa}<span className="espacio"> </span></td>
-      <td>{DniAlu}<span className="espacio"> </span></td>
-      <td><button className="botones" type="button" onClick={Eliminar}>
+    <>
+    
+      <tr>
+        <td>{id_insc}< span className="espacio"> </span></td>
+        <td>{idMesa}<span className="espacio"> </span></td>
+        <td>{DniAlu}<span className="espacio"> </span></td>
+        <td><button className="botones" type="button" onClick={Eliminar}>
           Eliminar
         </button>
         </td>
-     
-     
-    </tr>
+
+
+      </tr>
+    </>
   );
 }
