@@ -68,7 +68,6 @@ def AgregarAlumno (db: Session, dni:int, apellido:str, nombre:str):
              return alumNuevo
     else:
         return None
-    
 
 #eliminar//No TOcar Funciona
 def EliminarMesa(db: Session, id:int):

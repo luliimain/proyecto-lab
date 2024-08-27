@@ -7,10 +7,10 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    Button, Box, Image, Heading, Tooltip// Agrega la importación de Button
+    Button, Box, Image, Heading, Tooltip
 
 } from '@chakra-ui/react';
-import { ArrowBackIcon } from '@chakra-ui/icons'
+import { ArrowBackIcon } from '@chakra-ui/icons';
 import Barra from './BarraNavegacion';
 export default function AgregarMesa() {
 

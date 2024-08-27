@@ -44,8 +44,8 @@ export default function Inscribirse() {
         window.location.reload();
       }).catch(error => {
         console.error('Error en la solicitud:', error.message);
-        alert('dni desconocido');
-
+        alert('DNI incorrecto');
+        
       });
 
     }
@@ -76,7 +76,7 @@ export default function Inscribirse() {
                 <input className="textBAgregarMesa" type="input" onChange={SetDni} value={dni} />
                 <br /><br />
                 <div className='botonesAceptar'>
-                  <button className="botones" onClick={aceptar}><Link className="links" to={'/Mesas'}>aceptar</Link></button>
+                  <button className="botones" onClick={aceptar}><Link className="links" to={`/Mesas/VerInscriptos/${idMesa}`}>aceptar</Link></button>
                   <span className="espacio"></span>
                   <button className="botones"><Link className="links" to={'/Mesas'}>cancelar</Link></button>
                 </div>

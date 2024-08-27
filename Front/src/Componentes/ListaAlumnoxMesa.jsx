@@ -17,7 +17,8 @@ import {
     TableContainer, Heading// Agrega la importación de Button
 
 } from '@chakra-ui/react';
-import { ArrowBackIcon } from '@chakra-ui/icons'
+import { ArrowBackIcon } from '@chakra-ui/icons';
+import Barra from './BarraNavegacion';
 export default function AlumnosxMesa() {
     let { idMesa } = useParams();
     const [inscriptos, setInscripciones] = useState([]);
@@ -30,6 +31,7 @@ export default function AlumnosxMesa() {
     }, [idMesa]);
     return (
         <>
+        <Barra></Barra>
             <div >   <Link className="links" to={'/'}>
                 <Tooltip label='menu' fontSize='md'>
                     <ArrowBackIcon />

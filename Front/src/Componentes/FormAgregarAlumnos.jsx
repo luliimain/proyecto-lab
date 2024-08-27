@@ -48,10 +48,11 @@ export default function AgregarAlumno() {
                 setNombre('');
                 setDni('');
                 window.location.reload();
+                
             }).catch(error => {
-
                 console.error('Error en la solicitud:', error.message);
                 alert('Alumno ya existente');
+              
             });
         }
     }
